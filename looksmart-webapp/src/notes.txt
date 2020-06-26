@@ -1,3 +1,5 @@
 to build in gcp:
 mvn spring-boot:run
 
+to purge mvn dependencies:
+mvn dependency:purge-local-repository
