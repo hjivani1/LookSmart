@@ -16,4 +16,9 @@ public class UserDB implements UserDao{
         DB.add(new User(user));
         return 0;
     }
+
+    @Override
+    public List<User> selectAllUsers() {
+        return DB;
+    }
 }
