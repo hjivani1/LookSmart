@@ -31,7 +31,7 @@ public class User {
         this.uType = uType;
     }
 
-    public User(User user){
+    public User(@JsonProperty("user") User user){
         this.pantherID = user.pantherID;
         this.email = user.email;
         this.password = user.password;
