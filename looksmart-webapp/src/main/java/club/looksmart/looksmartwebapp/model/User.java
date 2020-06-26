@@ -7,8 +7,7 @@ public class User {
 
     enum UserType {
         tutor,
-        student,
-        admin
+        student
     }
 
     private final String pantherID;
