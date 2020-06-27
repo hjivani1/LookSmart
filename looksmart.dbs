@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MySql" id="Project_189" database="MySql" >
+	<schema name="looksmart" >
+		<table name="course" >
+			<column name="id" type="int" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" >
+				<comment><![CDATA[identifier of the course]]></comment>
+			</column>
+			<column name="coursename" type="varchar" length="100" decimal="0" jt="12" mandatory="y" />
+			<index name="pk_course" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="reservation" >
+			<comment><![CDATA[represents a reservation]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" autoincrement="y" >
+				<comment><![CDATA[identifier of the reservation]]></comment>
+			</column>
+			<column name="reservationnumber" type="varchar" length="10" jt="12" mandatory="y" />
+			<column name="studentuserid" type="int" jt="4" mandatory="y" />
+			<column name="tutoruserid" type="int" jt="4" mandatory="y" />
+			<column name="reservationtime" type="datetime" jt="93" mandatory="y" />
+			<index name="pk_reservation_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_reservation_user" to_schema="looksmart" to_table="user" >
+				<fk_column name="tutoruserid" pk="id" />
+			</fk>
+			<fk name="fk_reservation_user_0" to_schema="looksmart" to_table="user" >
+				<fk_column name="studentuserid" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="tutorschedule" >
+			<comment><![CDATA[this is the tutor schedule (based on the usertype)]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" autoincrement="y" >
+				<comment><![CDATA[identifier of the userschedule]]></comment>
+			</column>
+			<column name="userid" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[identifier of the user]]></comment>
+			</column>
+			<column name="dayoftheweek" type="int" jt="4" mandatory="y" />
+			<column name="starthour" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[this is in military time so we do not have to store AM/PM]]></comment>
+			</column>
+			<column name="endhour" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[end hour of the schedule]]></comment>
+			</column>
+			<index name="pk_userschedule_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_userschedule_user" to_schema="looksmart" to_table="user" >
+				<fk_column name="userid" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="user" >
+			<column name="id" type="int" length="10" decimal="0" jt="4" mandatory="y" autoincrement="y" >
+				<comment><![CDATA[int identifier of the user]]></comment>
+			</column>
+			<column name="email" type="varchar" length="250" decimal="0" jt="12" mandatory="y" >
+				<comment><![CDATA[email]]></comment>
+			</column>
+			<column name="password" type="varchar" length="100" decimal="0" jt="12" mandatory="y" >
+				<comment><![CDATA[password of the user]]></comment>
+			</column>
+			<column name="pantherid" type="int" jt="4" mandatory="y" />
+			<column name="usertypeid" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[this represents the usertype]]></comment>
+			</column>
+			<index name="pk_user" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_user_usertype" to_schema="looksmart" to_table="usertype" >
+				<fk_column name="usertypeid" pk="id" />
+			</fk>
+		</table>
+		<table name="usercourse" >
+			<comment><![CDATA[this represents the relationship between a user and a course]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" autoincrement="y" >
+				<comment><![CDATA[identifier]]></comment>
+			</column>
+			<column name="userid" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[the id of the user]]></comment>
+			</column>
+			<column name="courseid" type="int" jt="4" mandatory="y" >
+				<comment><![CDATA[the identifier of the course]]></comment>
+			</column>
+			<index name="pk_usercourse_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_usercourse_user" to_schema="looksmart" to_table="user" >
+				<fk_column name="userid" pk="id" />
+			</fk>
+			<fk name="fk_usercourse_course" to_schema="looksmart" to_table="course" >
+				<fk_column name="courseid" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="usertype" >
+			<comment><![CDATA[this is the usertype lookup table. the only values that will be in this table are student and tutor]]></comment>
+			<column name="id" type="int" jt="4" mandatory="y" autoincrement="y" >
+				<comment><![CDATA[int identifier of the lookup type]]></comment>
+			</column>
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" >
+				<comment><![CDATA[the name of the user type]]></comment>
+			</column>
+			<index name="pk_usertype_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+	</schema>
+	<connector name="MySql" database="MySql" driver_class="com.mysql.jdbc.Driver" driver_jar="mysql-connector-java-8.0.19.jar" driver_desc="Standard" url="jdbc:mysql://feazi-cluster.cluster-clodnetdpzso.us-east-1.rds.amazonaws.com:3306/looksmart?useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;useOldAliasMetadataBehavior=true" host="rockitcluster.cluster-c3ioxkjesofc.us-east-1.rds.amazonaws.com" port="3306" instance="SellerCentral" user="root" passwd="cXVlcnk1ZVQ=" />
+	<layout name="Default Layout" id="Layout_4fe" show_relation="columns" >
+		<entity schema="looksmart" name="course" color="3986C1" x="512" y="96" />
+		<entity schema="looksmart" name="reservation" color="C1D8EE" x="688" y="352" />
+		<entity schema="looksmart" name="tutorschedule" color="C1D8EE" x="48" y="240" />
+		<entity schema="looksmart" name="user" color="BED3F4" x="288" y="80" />
+		<entity schema="looksmart" name="usercourse" color="C1D8EE" x="416" y="320" />
+		<entity schema="looksmart" name="usertype" color="C1D8EE" x="96" y="48" />
+		<callout x="144" y="192" pointer="Round" >
+			<comment><![CDATA[Create new tables from the right-click pop-up, new foreign keys by drag and drop of one column over the Pk column.
+For a better understanding of the schema create multiple layouts (diagrams) with the same or different tables.]]></comment>
+		</callout>
+		<script name="SQL_Editor" id="Editor_26b6" language="SQL" >
+			<string><![CDATA[CREATE SCHEMA looksmart;
+
+CREATE TABLE looksmart.course ( 
+	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
+	coursename           varchar(100)  NOT NULL    
+ );
+
+ALTER TABLE looksmart.course MODIFY id int  NOT NULL  AUTO_INCREMENT COMMENT 'identifier of the course';
+
+CREATE TABLE looksmart.usertype ( 
+	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
+	name                 varchar(100)  NOT NULL    
+ ) engine=InnoDB;
+
+ALTER TABLE looksmart.usertype COMMENT 'this is the usertype lookup table. the only values that will be in this table are student and tutor';
+
+ALTER TABLE looksmart.usertype MODIFY id int  NOT NULL  AUTO_INCREMENT COMMENT 'int identifier of the lookup type';
+
+ALTER TABLE looksmart.usertype MODIFY name varchar(100)  NOT NULL   COMMENT 'the name of the user type';
+
+CREATE TABLE looksmart.`user` ( 
+	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
+	email                varchar(250)  NOT NULL    ,
+	password             varchar(100)  NOT NULL    ,
+	usertypeid           int  NOT NULL    
+ );
+
+ALTER TABLE looksmart.`user` MODIFY id int  NOT NULL  AUTO_INCREMENT COMMENT 'int identifier of the user';
+
+ALTER TABLE looksmart.`user` MODIFY email varchar(250)  NOT NULL   COMMENT 'email';
+
+ALTER TABLE looksmart.`user` MODIFY password varchar(100)  NOT NULL   COMMENT 'password of the user';
+
+ALTER TABLE looksmart.`user` MODIFY usertypeid int  NOT NULL   COMMENT 'this represents the usertype';
+
+CREATE TABLE looksmart.usercourse ( 
+	id                   int  NOT NULL  AUTO_INCREMENT  PRIMARY KEY,
+	userid               int  NOT NULL    ,
+	courseid             int  NOT NULL    
+ ) engine=InnoDB;
+
+ALTER TABLE looksmart.usercourse COMMENT 'this represents the relationship between a user and a course';
+
+ALTER TABLE looksmart.usercourse MODIFY id int  NOT NULL  AUTO_INCREMENT COMMENT 'identifier';
+
+ALTER TABLE looksmart.usercourse MODIFY userid int  NOT NULL   COMMENT 'the id of the user';
+
+ALTER TABLE looksmart.usercourse MODIFY courseid int  NOT NULL   COMMENT 'the identifier of the course';
+
+ALTER TABLE looksmart.`user` ADD CONSTRAINT fk_user_usertype FOREIGN KEY ( usertypeid ) REFERENCES looksmart.usertype( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE looksmart.usercourse ADD CONSTRAINT fk_usercourse_user FOREIGN KEY ( userid ) REFERENCES looksmart.`user`( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE looksmart.usercourse ADD CONSTRAINT fk_usercourse_course FOREIGN KEY ( courseid ) REFERENCES looksmart.course( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+]]></string>
+		</script>
+	</layout>
+</project>

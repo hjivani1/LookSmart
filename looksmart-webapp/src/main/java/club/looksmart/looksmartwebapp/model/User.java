@@ -1,8 +1,5 @@
 package club.looksmart.looksmartwebapp.model;
 
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class User {
 
     enum UserType {
@@ -13,16 +10,12 @@ public class User {
     private final String pantherID;
     private final String email;
     private final String password;
-    private final String firstName;
-    private final String lastName;
+    private String firstName;
+    private String lastName;
     private final UserType uType;
 
-    public User(@JsonProperty("pantherID") String pantherID,
-                @JsonProperty("email") String email,
-                @JsonProperty("password") String password,
-                @JsonProperty("firstName") String firstName,
-                @JsonProperty("lastName") String lastName,
-                @JsonProperty("userType") UserType uType) {
+    public User(String pantherID, String email, String password, String firstName,
+                String lastName, UserType uType) {
         this.pantherID = pantherID;
         this.email = email;
         this.password = password;
@@ -31,13 +24,22 @@ public class User {
         this.uType = uType;
     }
 
-    public User(@JsonProperty("user") User user){
+    public User(User user){
         this.pantherID = user.pantherID;
         this.email = user.email;
         this.password = user.password;
         this.firstName = user.firstName;
         this.lastName = user.lastName;
         this.uType = user.uType;
+    }
+
+    // used for logging in
+    public User(String email,
+                String password) {
+        this.email = email;
+        this.password = password;
+        this.pantherID = "";
+        this.uType = null;
     }
 
     public String getEmail() {
@@ -62,5 +64,9 @@ public class User {
 
     public String getPantherID() {
         return pantherID;
+    }
+
+    public Boolean login() {
+        return true;
     }
 }
