@@ -6,7 +6,7 @@
     <title>Tutor Login</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
     <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-lg bg-light border-bottom">
         <!-- Logo -->
         <div class="logo">
-            <img src="gsulogo.png" alt="GSU LOGO" style="height: 100px; width: 100px;">
+            <img src="../static/pics/gsulogo.png" alt="GSU LOGO" style="height: 100px; width: 100px;">
         </div>
         <!-- Title of System -->
         <div class="title_header">
@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="../static/index.html">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact_us.html">Contact Us</a>
@@ -74,7 +74,7 @@
                                 <input type="submit" ng-disabled="myForm.email.$dirty && myForm.email.$invalid" name="submit" class="btn btn-info btn-md" value="submit">
                             </div>
                             <div id="home-link" class="text-right">
-                                <a href="index.html" class="text-info">Click to go to homepage!</a>
+                                <a href="../static/index.html" class="text-info">Click to go to homepage!</a>
                             </div>
                         </form>
                     </div>
