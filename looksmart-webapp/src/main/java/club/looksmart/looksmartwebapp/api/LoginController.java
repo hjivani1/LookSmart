@@ -16,14 +16,8 @@ public class LoginController {
     }
 
     @PostMapping("/student_login")
-    public String login(@RequestParams String email,String password)
+    public String loginSubmit(Model model)
     {
-        if(email==null||password==null)
-        {
-            return "index";
-        }
-        // TODO: Pass the email and password to the DB and attempt to retrieve a user
-
-        return null;
+        return "reservations";
     }
 }
