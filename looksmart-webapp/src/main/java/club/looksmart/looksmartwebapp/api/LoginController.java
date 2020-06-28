@@ -12,12 +12,12 @@ public class LoginController {
 
     @GetMapping("/student_login")
     public String loginForm(Model model) {
-        model.addAttribute("login", new Login());
+        model.addAttribute("login", new Login);
         return "student_login";
     }
 
     @PostMapping("/student_login")
-    public String loginSubmit(@ModelAttribute Login login)
+    public String loginSubmit(@ModelAttribute Login login, Model model)
     {
         return "reservation";
     }
