@@ -54,8 +54,7 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form ng-app="login-form-app" ng-controller="validateCtrl" name="myForm" id="login-form" class="form" action="#" method="post"
-                              th:action="@{/student_login}" th:object="${login}" novalidate>
+                        <form  action="#" method="post" th:action="@{/student_login}" th:object="${login}">
                             <h3 class="text-center text-info">Student Login</h3>
                             <div class="form-group">
                                 <label for="email" class="text-info">Panther E-Mail:</label><br>
