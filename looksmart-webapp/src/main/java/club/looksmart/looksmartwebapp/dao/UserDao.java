@@ -6,9 +6,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface UserDao {
-
-    int insertUser(User user);
-
-    List<User> selectAllUsers();
-
+    User retrieveUser(String email, String password);
 }

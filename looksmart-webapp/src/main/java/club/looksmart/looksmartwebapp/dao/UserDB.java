@@ -8,17 +8,14 @@ import java.util.List;
 
 @Repository("gcpDB")
 public class UserDB implements UserDao{
-
-    private static List<User> DB = new ArrayList<>();
-
-    @Override
-    public int insertUser(User user) {
-        DB.add(new User(user));
-        return 0;
-    }
-
-    @Override
-    public List<User> selectAllUsers() {
-        return DB;
+    @Implements
+    public User retrieveUser(String email, String password)
+    {
+        // TODO: check email and password (yes again) to make sure the values are valid
+        //TODO: Setup a connection to the MySql Database
+        // TODO: Open the connection
+        // TODO: Run Sql to find a User based on the email and password passed in
+        // TODO: Return the user
     }
 }
+
