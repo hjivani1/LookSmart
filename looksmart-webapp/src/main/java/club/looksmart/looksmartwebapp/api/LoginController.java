@@ -19,6 +19,6 @@ public class LoginController {
     @PostMapping("/student_login")
     public String loginSubmit(@ModelAttribute Login login)
     {
-        return "reservations";
+        return "reservation";
     }
 }
