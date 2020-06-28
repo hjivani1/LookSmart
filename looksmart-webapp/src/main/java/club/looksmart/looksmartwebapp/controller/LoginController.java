@@ -1,4 +1,4 @@
-package club.looksmart.looksmartwebapp.api;
+package club.looksmart.looksmartwebapp.controller;
 
 import club.looksmart.looksmartwebapp.model.Login;
 import org.springframework.stereotype.Controller;
