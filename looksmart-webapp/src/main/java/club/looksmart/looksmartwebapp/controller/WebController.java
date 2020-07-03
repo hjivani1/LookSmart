@@ -1,14 +1,24 @@
 package club.looksmart.looksmartwebapp.controller;
 
 import club.looksmart.looksmartwebapp.model.Login;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class WebController {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    public WebController(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @GetMapping("/")
     public String index(Model model) {
@@ -56,9 +66,15 @@ public class WebController {
         return "index";
     }
 
+
+//    @Value("${reservation.email}")
+//    private String email;
     @GetMapping("/reservation")
     public String reservationForm(Model model) {
-        //model.addAttribute("login", new Login());
+        List emailName = jdbcTemplate.queryForList("SELECT email FROM user WHERE email=student1@student.gsu.edu");
+        String email = emailName.get(0).toString();
+        System.out.println("debug:" + email);
+        model.addAttribute("email", email);
         return "reservation";
     }
 
