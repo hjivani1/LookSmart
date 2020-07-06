@@ -94,6 +94,7 @@ public class WebController {
         model.addAttribute("email", email);
 
         String[] availableTutors = {};
+        String[] availableCourses = {};
         model.addAttribute("reservation", new Reservation(availableTutors, availableCourses));
         return "reservation";
     }
