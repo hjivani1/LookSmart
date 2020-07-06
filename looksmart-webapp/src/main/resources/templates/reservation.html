@@ -87,7 +87,7 @@
         </div>
         <div class="container">
             <div class="col-md-4">
-                <form>
+                <form th:action="@{/reservation}" th:object="${reservation}">
                     <h4>Course</h4>
                         <select class="form-control"  id='firstList' name='firstList' onClick="getCourseItem()">
                     </select>

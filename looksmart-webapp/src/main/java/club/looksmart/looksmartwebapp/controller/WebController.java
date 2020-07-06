@@ -1,6 +1,7 @@
 package club.looksmart.looksmartwebapp.controller;
 
 import club.looksmart.looksmartwebapp.model.Login;
+import club.looksmart.looksmartwebapp.model.Reservation;
 import club.looksmart.looksmartwebapp.model.Student;
 import club.looksmart.looksmartwebapp.model.User;
 import club.looksmart.looksmartwebapp.service.UserRowMapper;
@@ -12,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import java.sql.Date;
+
 
 import javax.xml.crypto.Data;
 import java.sql.SQLException;
@@ -89,6 +92,9 @@ public class WebController {
         email = "Bob";
         System.out.println("debug:" + email);
         model.addAttribute("email", email);
+
+        String[] availableTutors = {};
+        model.addAttribute("reservation", new Reservation(availableTutors, availableCourses));
         return "reservation";
     }
 
