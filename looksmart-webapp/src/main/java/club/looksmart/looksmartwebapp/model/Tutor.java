@@ -4,9 +4,8 @@ public class Tutor extends User{
 
     private final String[] coursesTaught;
 
-    public Tutor(String pantherID, String email, String password, String firstName,
-                 String lastName, UserType uType, String[] coursesTaught) {
-        super(pantherID, email, password, firstName, lastName, uType);
+    public Tutor(String pantherID, String email, String password, int uType, String[] coursesTaught) {
+        super(pantherID, email, password, uType);
         this.coursesTaught = coursesTaught;
     }
 
