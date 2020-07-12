@@ -3,37 +3,43 @@ package club.looksmart.looksmartwebapp.model;
 import java.sql.Date;
 
 public class Reservation {
-
+    private String course;
+    private String studentName;
+    private String tutorName;
     private String reservationID;
     private String studentPantherID;
     private String tutorPantherID;
     private Date date;
-    private String[] availableCourses;
-    private String[] availableTutors;
 
-    public Reservation(String reservationID, String studentPantherID, String tutorPantherID, Date date,
-                       String[] availableTutors, String[] availableCourses) {
-        this.reservationID = reservationID;
-        this.studentPantherID = studentPantherID;
-        this.tutorPantherID = tutorPantherID;
-        this.date = date;
-        this.availableTutors = availableTutors;
-        this.availableCourses = availableCourses;
-    }
-
-    public Reservation(String reservationID, String studentPantherID, String tutorPantherID, Date date) {
+    public Reservation(String course, String studentName, String tutorName, String reservationID, String studentPantherID,
+                       String tutorPantherID, Date date) {
+        this.course = course;
+        this.studentName = studentName;
+        this.tutorName = tutorName;
         this.reservationID = reservationID;
         this.studentPantherID = studentPantherID;
         this.tutorPantherID = tutorPantherID;
         this.date = date;
     }
 
-    public Reservation(String[] availableTutors, String[] availableCourses) {
-        this.availableTutors = availableTutors;
-        this.availableCourses = availableCourses;
+    public Reservation(String course, String tutorName) {
+        this.course = course;
+        this.tutorName = tutorName;
     }
-
     public Reservation(){}
+
+    // Getters and Setters
+    public String getCourse() { return this.course; }
+
+    public void setCourse(String course) { this.course = course; }
+
+    public String getStudentName() { return this.studentName; }
+
+    public void setStudentName(String studentName) { this.studentName = studentName; }
+
+    public String getTutorName() { return this.tutorName; }
+
+    public void setTutorName(String tutorName) { this.tutorName = tutorName; }
 
     public String getReservationID() {
         return this.reservationID;
@@ -54,6 +60,7 @@ public class Reservation {
     public String getStudentPantherID() {
         return studentPantherID;
     }
+
     public void setStudentPantherID(String studentPantherID) {
         this.studentPantherID = studentPantherID;
     }
@@ -65,13 +72,4 @@ public class Reservation {
     public void setDate(Date date) {
         this.date = date;
     }
-
-    public String[] getAvailableTutors() {
-        return this.availableTutors;
-    }
-
-    public String[] getAvailableCourses() {
-        return this.availableCourses;
-    }
-
 }

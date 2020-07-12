@@ -3,3 +3,12 @@ mvn spring-boot:run
 
 to purge mvn dependencies:
 mvn dependency:purge-local-repository
+
+to see what's running on port 8080:
+sudo netstat -lntp | grep -w ':8080'
+
+
+todo:
+log out button on res and res_hist
+Make "Reservation Success/Not Success" pop up
+

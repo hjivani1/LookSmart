@@ -14,28 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    
-    <script>
-        var app = angular.module('selectboxApp', []);
-        app.controller('selectboxCtrl', function ($scope) {
-        $scope.arrlist = [{
-        "courseid": 1,
-        "name": "CSC 1301"
-        }, {
-        "courseid": 2,
-        "name": "CSC 1302"
-        }, {
-        "courseid": 3,
-        "name": "CSC 3210"
-        }];
-        $scope.checkselection = function () {
-        if ($scope.courseSelect != "" && $scope.courseSelect != undefined)
-        $scope.msg = 'Selected Value: '+$scope.courseSelect;
-        else
-        $scope.msg = 'Please Select Course!';
-        }
-        });
-    </script>
+
 
 
 
@@ -67,14 +46,10 @@
                 <li class="nav-item">
                   <a class="nav-link" th:href="@{/contact_us}">Contact Us</a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Login
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/tutor_login}">Tutor</a>
-                    <a class="dropdown-item" th:href="@{/student_login}">Student</a>
-                  </div>
+                <li class="nav-item">
+                  <a class="nav-link" th:href="@{/reservation_history}">Reservation History</a>
+                </li> <li class="nav-item">
+                  <a class="nav-link" th:href="@{/logout}">Logout</a>
                 </li>
               </ul>
             </div>
@@ -82,22 +57,24 @@
 
         <div class="container">
             <h2>
-                <span th:text="'Hello, ' + ${email}"></span>
+                <span th:object="${storedUser}" th:text="|Hello ${sessionUser.getName()}|"></span>
             </h2>
         </div>
         <div class="container">
             <div class="col-md-4">
-                <form th:action="@{/reservation}" th:object="${reservation}">
+                <form th:action="@{/reservation}" th:object="${reservation}" method="post">
                     <h4>Course</h4>
-                        <select class="form-control"  id='firstList' name='firstList' onClick="getCourseItem()">
+                        <select class="form-control"  id='firstList' name='firstList' onClick="getCourseItem()"
+                        th:field="*{course}">
                     </select>
                     <br>
                     <h4>Tutor</h4>
-                        <select class="form-control"  id='secondList' name='secondList' >
+                        <select class="form-control"  id='secondList' name='secondList' onClick="getTutorItem()"
+                        th:field="*{tutorName}">
                     </select>
                     <br>
-                    <button type="submit" id="submit" value="submit">Click to Reserve!</button>
-                    </form>
+                    <input type="submit" name="submit" value="Click to Reserve!">
+                </form>
                 <br><br>
             </div>
         </div>
@@ -149,47 +126,54 @@
         <script>
             $(document).ready(function () {
             
-            var list1 = document.getElementById('firstList');
-            
-            list1.options[0] = new Option('--Select--', '');
-            list1.options[1] = new Option('CSC1301');
+                var list1 = document.getElementById('firstList');
+
+                list1.options[0] = new Option('--Select--', '');
+                list1.options[1] = new Option('CSC1301');
+                list1.options[2] = new Option('CSC1302');
+                list1.options[3] = new Option('CSC2510');
+                list1.options[4] = new Option('CSC2720');
+                list1.options[5] = new Option('CSC3210');
+                list1.options[6] = new Option('CSC3320');
+
+                var list2 = document.getElementById('secondList');
+
+                list2.options[0] = new Option('--Select--', '');
+                list2.options[1] = new Option('Bob');
+                list2.options[2] = new Option('Joe');
+                list2.options[3] = new Option('Billy');
+                list2.options[4] = new Option('Jimmy');
             });
+
+
         
             function getCourseItem(){
-         
                 var list1 = document.getElementById('firstList');
-                var list2 = document.getElementById("secondList");
-                var list1SelectedValue = list1.options[list1.selectedIndex].value;
-                
-                if (list1SelectedValue=='CSC1301')
-                {
-                    
-                    list2.options.length=0;
-                    list2.options[0] = new Option('--Select--');
-                    list2.options[1] = new Option('John Doe');
-                    list2.options[2] = new Option('Hello Hola');
-                }
+            }
+
+            function getTutorItem(){
+                var list2 = document.getElementById('secondList');
             }
             
             </script>
-            <script>
-                $(document).ready(function () {
-                    $("#submit").click(function () {
-            
-                        var tutorOption = $('#secondList');
-                        if (tutorOption.val() === '') {
-                            alert("Please select an tutor from the list and then proceed!");
-                            $('#secondList').focus();
+<!--            <script>-->
+<!--                $(document).ready(function () {-->
+<!--                    $("#submit").click(function () {-->
+<!--            -->
+<!--                        var tutorOption = $('#secondList');-->
+<!--                        if (tutorOption.val() === '') {-->
+<!--                            alert("Please select an tutor from the list and then proceed!");-->
+<!--                            $('#secondList').focus();-->
 
-            
-                            return false;
-                        }
-                        else if (tutorOption.val() != '') {
-                            alert("Thanks for reservation!");
-                        }
-                        else return;
-                    });
-                });
-            </script>
+<!--            -->
+<!--                            return false;-->
+<!--                        }-->
+<!--                        else if (tutorOption.val() !== '') {-->
+<!--                            alert("Thanks for reservation!");-->
+<!--                        }-->
+<!--                        else return;-->
+<!--                    });-->
+<!--                });-->
+<!--            </script>-->
   </body>
 </html>
