@@ -29,10 +29,20 @@ public class HistoryController {
         if (sessionUser.getuType() == 1) {
             List<Reservation> rh = reservationDao.pastReservations(sessionUser);
             model.addAttribute("reservations", rh);
+            return "reservation_history";
+        } else if (sessionUser.getuType() == 2) {
+            System.out.println("We got here");
+            List<Reservation> rh = reservationDao.pastTutorReservations(sessionUser);
+            model.addAttribute("reservations", rh);
+            return tutResHistoryForm(model, sessionUser);
         } else {
-            System.out.println("Still need to implement the tutor reservation history functionality");
+            return "error";
         }
+    }
 
-        return "reservation_history";
+    @GetMapping("/tutor_reservation_history")
+    public String tutResHistoryForm(Model model,
+                                    @ModelAttribute("sessionUser") User sessionUser) {
+        return "tutor_reservation_history";
     }
 }

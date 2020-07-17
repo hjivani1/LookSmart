@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light border-bottom">
+    <!-- Logo -->
+    <div class="logo">
+        <img src="../pics/gsulogo.png" alt="GSU LOGO" style="height: 100px; width: 100px;">
+    </div>
+    <!-- Title of System -->
+    <div class="title_header">
+        <h2 style="margin-left: 400px;">LookSmart Tutoring System</h2>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/contact_us}">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/logout}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <div id="">
+        <div class="container-fluid bg-grey">
+            <br>
+            <h2 class="text-center">Review Tutor</h2>
+            <br><br>
+                <form th:action="@{/leave_review}" th:object="${review}" method="post"
+                      ng-app="contact-form-app" ng-controller="validateCtrl" name="myForm" novalidate>
+                    <div class="container">
+                        <div class="col-md-4">
+                            <h4>Tutor</h4>
+                            <select class="form-control"  id='secondList' name='secondList' onClick="getTutorItem()"
+                                    th:field="*{tutorName}">
+                            </select>
+
+                            <h4>Course</h4>
+                            <select class="form-control"  id='firstList' name='firstList' onClick="getCourseItem()"
+                                    th:field="*{courseName}">
+                            </select>
+
+                            <h4>Rating</h4>
+                            <select class="form-control"  id='thirdList' name='thirdList' onClick="getRatingItem()"
+                                    th:field="*{rating}">
+                            </select>
+                            <br>
+                            <br><br>
+                        </div>
+                    </div>
+                    <div>
+                        <textarea class="form-control" id="comments" ng-model="comments"
+                                  name="comments" placeholder="Comment" rows="5" th:field="*{reviewContent}"></textarea>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <button class="btn btn-success pull-right" type="submit">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <br><br>
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>About</h6>
+                    <p class="text-justify"><i>LookSmart </i> is an application to give students a better idea
+                        of the help they can receive based on the course they are enrolled in along with the info the
+                        app provides about available tutors at the current time/day.</p>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <h6>Most Frequent Courses Taught</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">CSC 1301</a></li>
+                        <li><a href="#">CSC 1302</a></li>
+                        <li><a href="#">CSC 2510</a></li>
+                        <li><a href="#">CSC 2720</a></li>
+                        <li><a href="#">CSC 3210</a></li>
+                        <li><a href="#">CSC 3320</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a th:href="@{/contact_us}">Contact Us</a></li>
+                        <li><a th:href="@{/tutor_reviews}">Tutor Reviews</a></li>
+                        <li><a th:href="@{/logout}">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2020.
+                        <br>Created by:
+                        Harsh Jivani, Serena Johnson, Arsal Khan, Abraham Mammen, Adam Nichols
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</div>
+<script>
+$(document).ready(function () {
+
+var list1 = document.getElementById('firstList');
+
+list1.options[0] = new Option('--Select--', '');
+list1.options[1] = new Option('CSC1301');
+list1.options[2] = new Option('CSC1302');
+list1.options[3] = new Option('CSC2510');
+list1.options[4] = new Option('CSC2720');
+list1.options[5] = new Option('CSC3210');
+list1.options[6] = new Option('CSC3320');
+
+var list2 = document.getElementById('secondList');
+
+list2.options[0] = new Option('--Select--', '');
+list2.options[1] = new Option('Bob');
+list2.options[2] = new Option('Joe');
+list2.options[3] = new Option('Billy');
+list2.options[4] = new Option('Jimmy');
+
+var list3 = document.getElementById('thirdList');
+
+list3.options[0] = new Option('--Select--', '');
+list3.options[1] = new Option('1');
+list3.options[2] = new Option('2');
+list3.options[3] = new Option('3');
+list3.options[4] = new Option('4');
+list3.options[5] = new Option('5');
+});
+
+
+
+function getCourseItem(){
+    var list1 = document.getElementById('firstList');
+}
+
+function getTutorItem(){
+    var list2 = document.getElementById('secondList');
+}
+
+function getRatingItem(){
+    var list3 = document.getElementById('thirdList');
+}
+</script>
+<script>
+    var app = angular.module('contact-form-app', []);
+    app.controller('validateCtrl', function($scope) {
+        $scope.name = '';
+        $scope.email= '';
+    });
+</script>
+</body>
+
+</html>

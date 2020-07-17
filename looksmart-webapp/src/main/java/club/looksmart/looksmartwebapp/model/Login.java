@@ -1,7 +1,5 @@
 package club.looksmart.looksmartwebapp.model;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
-
 public class Login {
 
     private String password;

@@ -37,13 +37,8 @@
             <li class="nav-item">
               <a class="nav-link" th:href="@{/contact_us}">Contact Us</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Login
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" th:href="@{/tutor_login}">Tutor</a>
-                <a class="dropdown-item" th:href="@{/student_login}">Student</a>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/student_login}">Login</a>
             </li>
           </ul>
         </div>
@@ -67,25 +62,30 @@
                     <p><span>Phone: +1(404)413-5563</span></p>
                     <p><span>E-Mail: stemoffice@gsu.edu</span></p>
                   </div>
-                  <form ng-app="contact-form-app" ng-controller="validateCtrl" name="myForm" novalidate>
+                    <form th:action="@{/contact_us}" th:object="${contact}" method="post"
+                          ng-app="contact-form-app" ng-controller="validateCtrl" name="myForm" novalidate>
                     <div class="">
                       <div class="row">
                         <div class="col-sm-6 form-group">
-                          <input class="form-control" id="name" ng-model="name" name="name" placeholder="Name" type="text" required>
+                          <input class="form-control" id="name" ng-model="name" name="name" placeholder="Name" type="text" required
+                                 th:field="*{name}">
                           <span style="color:red" ng-show="myForm.name.$dirty && myForm.name.$invalid">
                             <span ng-show="myForm.name.$error.required">Name is required.</span>
                             <span ng-show="myForm.name.$error.email">Invalid name.</span>
                         </span>
                         </div>
                         <div class="col-sm-6 form-group">
-                          <input class="form-control" id="email" ng-model="email" name="email" placeholder="Email" type="email" required>
+                          <input class="form-control" id="email" ng-model="email" name="email" placeholder="Email" type="email" required
+                                 th:field="*{email}">
                           <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
                             <span ng-show="myForm.email.$error.required">E-mail is required.</span>
                             <span ng-show="myForm.email.$error.email">Invalid E-mail entered.</span>
                         </span>
                         </div>
                       </div>
-                      <textarea class="form-control" id="comments" ng-model="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+                        <textarea class="form-control" id="comments" ng-model="comments"
+                            name="comments" placeholder="Comment" rows="5" th:field="*{comment}"></textarea>
+                        <br>
                       <div class="row">
                         <div class="col-sm-12 form-group">
                           <button class="btn btn-success pull-right" type="submit">Send</button>

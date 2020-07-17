@@ -20,7 +20,7 @@
     <nav class="navbar navbar-expand-lg bg-light border-bottom">
         <!-- Logo -->
         <div class="logo">
-            <img src="../pics/gsulogo.png" alt="GSU LOGO" style="height: 100px; width: 100px;">
+            <img th:src="@{images/gsulogo.png}" src="gsulogo.png" alt="GSU LOGO" style="height: 100px; width: 100px;">
         </div>
         <!-- Title of System -->
         <div class="title_header">
@@ -49,7 +49,7 @@
       </nav>
     
       <div class="container" ng-app="app" ng-controller="jsaController">
-        <h3>Customer List:</h3>
+        <h3>Student Reservation History:</h3>
           <div id="customerlist" class="row col-md-8 table-responsive">
             <table class="table table-bordered table-hover">
               <tr>
@@ -116,7 +116,5 @@
               </div>
               </div>
       </footer>
-        </div>
-    </div>
 </body>
 </html>
