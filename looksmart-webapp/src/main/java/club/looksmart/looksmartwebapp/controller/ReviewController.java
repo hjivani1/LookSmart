@@ -20,12 +20,14 @@ public class ReviewController {
     @Autowired
     private ReviewDao reviewDao;
 
-
-    @GetMapping("/leave_review")
+    @GetMapping("leave_review")
     public String leaveReviewForm(Model model,
                                   @ModelAttribute("sessionUser") User sessionUser) {
         if (sessionUser.getuType() == 0) {
-            return "index";
+            return "redirect:/student_login";
+        }
+        if (sessionUser.getuType() == 2) {
+            return "tutor_reviews";
         }
         model.addAttribute("review", new Review());
         return "leave_review";
@@ -36,15 +38,31 @@ public class ReviewController {
                                     @ModelAttribute Review review,
                                     @ModelAttribute("sessionUser") User sessionUser) {
         if (sessionUser.getuType() == 0) {
-            return "index";
+            return "redirect:/student_login";
         }
+
+        if (sessionUser.getuType() == 2) {
+            return "tutor_reviews";
+        }
+
+        if (review.getTutorName() == null || review.getTutorName().equals("") ||
+            review.getCourseName() == null || review.getCourseName().equals("") ||
+            review.getReviewContent() == null || review.getReviewContent().equals("") ||
+            review.getRating() < 1 || review.getRating() > 5) {
+            return "leave_review";
+        }
+
+        if(review.getReviewContent().length() > 140) {
+            review.setReviewContent(review.getReviewContent().substring(0, 139));
+        }
+
         review.setStudentName(sessionUser.getName());
         model.addAttribute("reviewStatus", reviewDao.leaveReview(review));
 
         return "redirect:/tutor_reviews";
     }
 
-    @GetMapping("/tutor_reviews")
+    @GetMapping("tutor_reviews")
     public String tutorReviewForm(Model model,
                                   @ModelAttribute("sessionUser") User sessionUser) {
 

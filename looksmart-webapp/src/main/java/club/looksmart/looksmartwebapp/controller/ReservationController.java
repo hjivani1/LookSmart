@@ -30,7 +30,11 @@ public class ReservationController {
     public String reservationForm(Model model,
                                   @ModelAttribute("sessionUser") User sessionUser) {
         if (sessionUser.getuType() == 0) {
-            return "index";
+            return "redirect:/student_login";
+        }
+
+        if (sessionUser.getuType() == 2) {
+            return "tutor_reservation_history";
         }
         model.addAttribute("reservation", new Reservation());
         return "reservation";
@@ -41,8 +45,13 @@ public class ReservationController {
                                     @ModelAttribute Reservation reservation,
                                     @ModelAttribute("sessionUser") User sessionUser) {
         if (sessionUser.getuType() == 0) {
-            return "index";
+            return "redirect:/student_login";
         }
+
+        if (sessionUser.getuType() == 2) {
+            return "tutor_reservation_history";
+        }
+
         // This should be switched back to return "reservation" when we have the pop up box
         if ( reservation.getTutorName() == null || reservation.getCourse() == null) {
             return "index";
@@ -60,6 +69,6 @@ public class ReservationController {
         // This needs to be followed up in the reservation.html page to direct whether a pop up window claiming success
         // or failure will be shown
         model.addAttribute("reservationStatus", reservationDao.makeReservation(sessionUser, reservation));
-        return "reservation";
+        return "reservation_history";
     }
 }

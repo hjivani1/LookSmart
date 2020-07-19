@@ -15,17 +15,22 @@ public class LoginController {
     @Autowired
     private UserDao userDao;
 
-    @ModelAttribute("sessionUser")
-    public User makeSessionUser() {
-        return new User();
-    }
+//    @ModelAttribute("sessionUser")
+//    public User makeSessionUser() {
+//        return new User();
+//    }
 
     @GetMapping("/student_login")
     public String studentLoginForm(Model model, @ModelAttribute("sessionUser") User sessionUser) {
-        if (sessionUser.getuType() != 0) {
+        if (sessionUser.getuType() == 1) {
             model.addAttribute("reservation", new Reservation());
             return "reservation";
         }
+
+        if (sessionUser.getuType() == 2) {
+            return "tutor_reservation_history";
+        }
+
         model.addAttribute("enteredUser", new User());
         return "student_login";
     }
@@ -34,9 +39,9 @@ public class LoginController {
     public String studentLoginSubmit(Model model,
                                      @ModelAttribute User enteredUser,
                                      @ModelAttribute("sessionUser") User sessionUser) {
-    // Authentication occurs here
+        // Authentication occurs here
         sessionUser.transferUser(userDao.authenticate(enteredUser));
-        if(sessionUser.getName() == null) {
+        if(sessionUser.getName() == null || sessionUser.getName().equals("")) {
             return "student_login";
         }
         model.addAttribute("reservation", new Reservation());

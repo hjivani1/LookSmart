@@ -24,7 +24,7 @@ public class HistoryController {
     public String resHistoryForm(Model model,
                                  @ModelAttribute("sessionUser") User sessionUser) {
         if (sessionUser.getuType() == 0) {
-            return "index";
+            return "redirect:/student_login";
         }
         if (sessionUser.getuType() == 1) {
             List<Reservation> rh = reservationDao.pastReservations(sessionUser);
@@ -43,6 +43,10 @@ public class HistoryController {
     @GetMapping("/tutor_reservation_history")
     public String tutResHistoryForm(Model model,
                                     @ModelAttribute("sessionUser") User sessionUser) {
+        if(sessionUser.getuType() != 2) {
+            return "index";
+        }
+
         return "tutor_reservation_history";
     }
 }
