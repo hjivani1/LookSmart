@@ -19,7 +19,7 @@
 <nav class="navbar navbar-expand-lg bg-light border-bottom">
     <!-- Logo -->
     <div class="logo">
-        <img src="../pics/gsulogo.png" alt="GSU LOGO" style="height: 100px; width: 100px;">
+        <img th:src="@{images/gsulogo.png}" src="gsulogo.png" alt="GSU LOGO" style="height: 100px; width: 100px;">
     </div>
     <!-- Title of System -->
     <div class="title_header">
@@ -33,6 +33,15 @@
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
                 <a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/tutor_reviews}">Tutor Reviews</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/reservation}">Make Reservation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/reservation_history}">Reservation History</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/contact_us}">Contact Us</a>
@@ -110,8 +119,11 @@
                 <div class="col-xs-6 col-md-3">
                     <h6>Quick Links</h6>
                     <ul class="footer-links">
-                        <li><a th:href="@{/contact_us}">Contact Us</a></li>
+                        <li><a th:href="@{/index}">Home</a></li>
                         <li><a th:href="@{/tutor_reviews}">Tutor Reviews</a></li>
+                        <li><a th:href="@{/reservation}">Make Reservation</a></li>
+                        <li><a th:href="@{/reservation_history}">Reservation History</a></li>
+                        <li><a th:href="@{/contact_us}">Contact Us</a></li>
                         <li><a th:href="@{/logout}">Logout</a></li>
                     </ul>
                 </div>

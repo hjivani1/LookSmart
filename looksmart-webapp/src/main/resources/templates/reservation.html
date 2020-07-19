@@ -28,7 +28,7 @@
         <nav class="navbar navbar-expand-lg bg-light border-bottom">
             <!-- Logo -->
             <div class="logo">
-                <img src="../pics/gsulogo.png" alt="GSU LOGO" style="height: 100px; width: 100px;">
+                <img th:src="@{images/gsulogo.png}" src="gsulogo.png" alt="GSU LOGO" style="height: 100px; width: 100px;">
             </div>
             <!-- Title of System -->
             <div class="title_header">
@@ -40,17 +40,24 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                  <a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" th:href="@{/contact_us}">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" th:href="@{/reservation_history}">Reservation History</a>
-                </li> <li class="nav-item">
-                  <a class="nav-link" th:href="@{/logout}">Logout</a>
-                </li>
+                  <li class="nav-item active">
+                      <a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" th:href="@{/leave_review}">Leave Review</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" th:href="@{/tutor_reviews}">Tutor Reviews</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" th:href="@{/reservation_history}">Reservation History</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" th:href="@{/contact_us}">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" th:href="@{/logout}">Logout</a>
+                  </li>
               </ul>
             </div>
         </nav>
@@ -102,11 +109,14 @@
                     </div>
                     <div class="col-xs-6 col-md-3">
                     <h6>Quick Links</h6>
-                    <ul class="footer-links">
-                        <li><a th:href="@{/contact_us}">Contact Us</a></li>
-                        <li><a th:href="@{/tutor_login}">Tutor Login</a></li>
-                        <li><a th:href="@{/student_login}">Student Login</a></li>
-                    </ul>
+                        <ul class="footer-links">
+                            <li><a th:href="@{/index}">Home</a></li>
+                            <li><a th:href="@{/leave_review}">Leave Review</a></li>
+                            <li><a th:href="@{/tutor_reviews}">Tutor Reviews</a></li>
+                            <li><a th:href="@{/reservation_history}">Reservation History</a></li>
+                            <li><a th:href="@{/contact_us}">Contact Us</a></li>
+                            <li><a th:href="@{/logout}">Logout</a></li>
+                        </ul>
                     </div>
                 </div>
                 <hr>
@@ -120,60 +130,41 @@
                     </p>
                     </div>
                 </div>
-                </div>
+            </div>
         </footer>
     </div>
-        <script>
-            $(document).ready(function () {
-            
-                var list1 = document.getElementById('firstList');
+    <script>
+        $(document).ready(function () {
 
-                list1.options[0] = new Option('--Select--', '');
-                list1.options[1] = new Option('CSC1301');
-                list1.options[2] = new Option('CSC1302');
-                list1.options[3] = new Option('CSC2510');
-                list1.options[4] = new Option('CSC2720');
-                list1.options[5] = new Option('CSC3210');
-                list1.options[6] = new Option('CSC3320');
+            var list1 = document.getElementById('firstList');
 
-                var list2 = document.getElementById('secondList');
+            list1.options[0] = new Option('--Select--', '');
+            list1.options[1] = new Option('CSC1301');
+            list1.options[2] = new Option('CSC1302');
+            list1.options[3] = new Option('CSC2510');
+            list1.options[4] = new Option('CSC2720');
+            list1.options[5] = new Option('CSC3210');
+            list1.options[6] = new Option('CSC3320');
 
-                list2.options[0] = new Option('--Select--', '');
-                list2.options[1] = new Option('Bob');
-                list2.options[2] = new Option('Joe');
-                list2.options[3] = new Option('Billy');
-                list2.options[4] = new Option('Jimmy');
-            });
+            var list2 = document.getElementById('secondList');
+
+            list2.options[0] = new Option('--Select--', '');
+            list2.options[1] = new Option('Bob');
+            list2.options[2] = new Option('Joe');
+            list2.options[3] = new Option('Billy');
+            list2.options[4] = new Option('Jimmy');
+        });
 
 
-        
-            function getCourseItem(){
-                var list1 = document.getElementById('firstList');
-            }
 
-            function getTutorItem(){
-                var list2 = document.getElementById('secondList');
-            }
-            
-            </script>
-<!--            <script>-->
-<!--                $(document).ready(function () {-->
-<!--                    $("#submit").click(function () {-->
-<!--            -->
-<!--                        var tutorOption = $('#secondList');-->
-<!--                        if (tutorOption.val() === '') {-->
-<!--                            alert("Please select an tutor from the list and then proceed!");-->
-<!--                            $('#secondList').focus();-->
+        function getCourseItem(){
+            var list1 = document.getElementById('firstList');
+        }
 
-<!--            -->
-<!--                            return false;-->
-<!--                        }-->
-<!--                        else if (tutorOption.val() !== '') {-->
-<!--                            alert("Thanks for reservation!");-->
-<!--                        }-->
-<!--                        else return;-->
-<!--                    });-->
-<!--                });-->
-<!--            </script>-->
+        function getTutorItem(){
+            var list2 = document.getElementById('secondList');
+        }
+
+    </script>
   </body>
 </html>
