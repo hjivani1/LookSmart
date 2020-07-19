@@ -36,6 +36,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: large;
+    font-weight: bold;
+    text-shadow: 2px 2px #26272b;
   }
 
   .site-footer
