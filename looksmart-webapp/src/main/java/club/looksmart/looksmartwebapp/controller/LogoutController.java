@@ -19,6 +19,6 @@ public class LogoutController {
                          SessionStatus sessionStatus) {
         sessionStatus.setComplete();
         sessionUser.deleteUser();
-        return "index";
+        return "redirect:/index";
     }
 }
