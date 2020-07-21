@@ -33,7 +33,7 @@ public class ReservationControllerTest {
         String result = reservationController.reservationSubmit(new ExtendedModelMap(),
                 new Reservation("CSC1301", "Jimmy"),
                 validUser());
-        assertEquals(result, "reservation_history");
+        assertEquals(result, "redirect:/reservation_history");
     }
 
     @DisplayName("Reservation: Empty Course")

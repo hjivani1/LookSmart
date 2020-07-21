@@ -15,10 +15,8 @@ public class LoginController {
     @Autowired
     private UserDao userDao;
 
-//    @ModelAttribute("sessionUser")
-//    public User makeSessionUser() {
-//        return new User();
-//    }
+    @ModelAttribute("sessionUser")
+    public User makeSessionUser() { return new User(); }
 
     @GetMapping("/student_login")
     public String studentLoginForm(Model model, @ModelAttribute("sessionUser") User sessionUser) {

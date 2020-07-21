@@ -69,6 +69,6 @@ public class ReservationController {
         // This needs to be followed up in the reservation.html page to direct whether a pop up window claiming success
         // or failure will be shown
         model.addAttribute("reservationStatus", reservationDao.makeReservation(sessionUser, reservation));
-        return "reservation_history";
+        return "redirect:/reservation_history";
     }
 }
