@@ -33,6 +33,7 @@ public class LoginController {
         return "student_login";
     }
 
+    // Post mapping
     @PostMapping("/student_login")
     public String studentLoginSubmit(Model model,
                                      @ModelAttribute User enteredUser,
