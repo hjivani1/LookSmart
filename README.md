@@ -5,9 +5,34 @@
 
 # Team Members: 
 <ul>
-  <li>Harsh Jivani</li>
-  <li>Serena Johnson</li>
-  <li>Arsal Khan</li>
-  <li>Abraham Mammen</li>
-  <li>Adam Nichols</li>
+  <li>Harsh Jivani
+    <ul>
+      <li>a</li>
+      <li>b</li>
+    </ul>
+  </li>
+  <li>Serena Johnson
+    <ul>
+      <li>a</li>
+      <li>b</li>
+    </ul>
+  </li>
+  <li>Arsal Khan
+    <ul>
+      <li>a</li>
+      <li>b</li>
+    </ul>
+  </li>
+  <li>Abraham Mammen
+    <ul>
+      <li>a</li>
+      <li>b</li>
+    </ul>
+  </li>
+  <li>Adam Nichols
+    <ul>
+      <li>a</li>
+      <li>b</li>
+    </ul>
+  </li>
 </ul>
