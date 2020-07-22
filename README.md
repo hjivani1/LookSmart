@@ -1,4 +1,12 @@
-# GSU CS Tutoring Center - LookSmart
-This repository is for Software Engineering Summer 2020 Project.
+# Tutoring Center Application - LookSmart
 
-Team Memebers: Harsh Jivani, Serena Johnson, Arsal Khan, Abraham Mammen, Adam Nichols
+# About
+
+# Team Members: 
+<ul>
+  <li>Harsh Jivani</li>
+  <li>Serena Johnson</li>
+  <li>Arsal Khan</li>
+  <li>Abraham Mammen</li>
+  <li>Adam Nichols</li>
+</ul>
