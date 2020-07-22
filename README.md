@@ -5,6 +5,18 @@
 
 # Team Members: 
 <ul>
+  <li>Adam Nichols
+    <ul>
+      <li>a</li>
+      <li>b</li>
+    </ul>
+  </li>
+  <li>Arsal Khan
+    <ul>
+      <li>a</li>
+      <li>b</li>
+    </ul>
+  </li>
   <li>Harsh Jivani
     <ul>
       <li>a</li>
@@ -17,19 +29,7 @@
       <li>b</li>
     </ul>
   </li>
-  <li>Arsal Khan
-    <ul>
-      <li>a</li>
-      <li>b</li>
-    </ul>
-  </li>
   <li>Abraham Mammen
-    <ul>
-      <li>a</li>
-      <li>b</li>
-    </ul>
-  </li>
-  <li>Adam Nichols
     <ul>
       <li>a</li>
       <li>b</li>
