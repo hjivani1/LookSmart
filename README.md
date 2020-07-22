@@ -36,3 +36,16 @@
     </ul>
   </li>
 </ul>
+
+# Language/IDE/Technology Used:
+<ul>
+  <li>Java</li>
+  <li>Google Cloud</li>
+  <li>Thymeleaf</li>
+  <li>AngularJS</li>
+  <li>HTML5</li>
+  <li>Bootstrap</li>
+  <li>Java Spring Boot</li>
+  <li>MySQL</li>
+  <li>IntelliJ</li>
+<ul>
