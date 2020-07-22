@@ -1,6 +1,7 @@
 # Tutoring Center Application - LookSmart
 
 # About
+<p>Write some stuff about the project here...</p>
 
 # Team Members: 
 <ul>
