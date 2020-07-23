@@ -31,7 +31,6 @@ public class HistoryController {
             model.addAttribute("reservations", rh);
             return "reservation_history";
         } else if (sessionUser.getuType() == 2) {
-            System.out.println("We got here");
             List<Reservation> rh = reservationDao.pastTutorReservations(sessionUser);
             model.addAttribute("reservations", rh);
             return tutResHistoryForm(model, sessionUser);

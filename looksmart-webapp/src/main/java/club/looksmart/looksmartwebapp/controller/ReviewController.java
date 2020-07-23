@@ -26,10 +26,13 @@ public class ReviewController {
         if (sessionUser.getuType() == 0) {
             return "redirect:/student_login";
         }
-        if (sessionUser.getuType() == 2) {
-            return "tutor_reviews";
-        }
+
         model.addAttribute("review", new Review());
+
+        if (sessionUser.getuType() == 2) {
+            return "redirect:/tutor_reviews";
+        }
+
         return "leave_review";
     }
 
@@ -41,8 +44,11 @@ public class ReviewController {
             return "redirect:/student_login";
         }
 
+        review.setStudentName(sessionUser.getName());
+        model.addAttribute("reviewStatus", reviewDao.leaveReview(review));
+
         if (sessionUser.getuType() == 2) {
-            return "tutor_reviews";
+            return "redirect:/tutor_reviews";
         }
 
         if (review.getTutorName() == null || review.getTutorName().equals("") ||
@@ -55,9 +61,6 @@ public class ReviewController {
         if(review.getReviewContent().length() > 140) {
             review.setReviewContent(review.getReviewContent().substring(0, 139));
         }
-
-        review.setStudentName(sessionUser.getName());
-        model.addAttribute("reviewStatus", reviewDao.leaveReview(review));
 
         return "redirect:/tutor_reviews";
     }

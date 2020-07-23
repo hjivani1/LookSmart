@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
 @SessionAttributes("sessionUser")
+@Controller
 public class LoginController {
 
     @Autowired
@@ -43,7 +43,15 @@ public class LoginController {
         if(sessionUser.getName() == null || sessionUser.getName().equals("")) {
             return "student_login";
         }
+
         model.addAttribute("reservation", new Reservation());
-        return "reservation";
+
+        if(sessionUser.getuType() == 1) {
+            return "reservation";
+        } else if (sessionUser.getuType() == 2) {
+            return "redirect:/reservation_history";
+        } else {
+            return "student_login";
+        }
     }
 }

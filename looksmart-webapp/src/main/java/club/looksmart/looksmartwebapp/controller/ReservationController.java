@@ -33,10 +33,12 @@ public class ReservationController {
             return "redirect:/student_login";
         }
 
+        model.addAttribute("reservation", new Reservation());
+
         if (sessionUser.getuType() == 2) {
             return "tutor_reservation_history";
         }
-        model.addAttribute("reservation", new Reservation());
+
         return "reservation";
     }
 
