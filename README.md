@@ -1,4 +1,51 @@
-# GSU CS Tutoring Center - LookSmart
-This repository is for Software Engineering Summer 2020 Project.
+# Tutoring Center Application - LookSmart
 
-Team Memebers: Harsh Jivani, Serena Johnson, Arsal Khan, Abraham Mammen, Adam Nichols
+# About
+<p>Our system will work to ease the students' tensions, by suggesting help based on the courses being taken by each individual student. Students will sign into our system and their profile will be automatically edited and filled out from the student profile that is already existent in the GSU system, along with their course schedule. Topics most challenging for each course the student is signed up for will be listed out, as well as tutors that are tutoring for the respective courses. Students will be able to book tutors based on walk-in availability,or schedule an appointment online for a specific day.</p>
+
+# Team Members: 
+<ul>
+  <li>Adam Nichols
+    <ul>
+      <li>Tasks:</li>
+      <li>b</li>
+    </ul>
+  </li>
+  <li>Arsal Khan
+    <ul>
+      <li>Tasks:</li>
+      <li>b</li>
+    </ul>
+  </li>
+  <li>Abraham Mammen
+    <ul>
+      <li>Tasks:</li>
+      <li>b</li>
+    </ul>
+  </li>
+  <li>Serena Johnson
+    <ul>
+      <li>Tasks:</li>
+      <li>b</li>
+    </ul>
+  </li>
+  <li>Harsh Jivani
+    <ul>
+      <li>Tasks:</li>
+      <li>b</li>
+    </ul>
+  </li>
+</ul>
+
+# Language/IDE/Technology Used:
+<ul>
+  <li>Java</li>
+  <li>Google Cloud</li>
+  <li>Thymeleaf</li>
+  <li>AngularJS</li>
+  <li>HTML5</li>
+  <li>Bootstrap</li>
+  <li>Java Spring Boot</li>
+  <li>MySQL</li>
+  <li>IntelliJ</li>
+<ul>
