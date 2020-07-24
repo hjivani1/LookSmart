@@ -7,7 +7,7 @@
 <ul>
   <li>Adam Nichols
     <ul>
-      <li><b>Tasks:</b></li>
+      <li><b>Tasks</b></li>
       <li>-Planning and scheduling
 -Communication & collaboration
 -Report Compilation
@@ -27,7 +27,7 @@
   </li>
   <li>Arsal Khan
     <ul>
-      <li><b>Tasks:</b></li>
+      <li><b>Tasks</b></li>
       <li>-Planning and scheduling
 -Communication & collaboration
 -Report Compilation
@@ -44,7 +44,7 @@
   </li>
   <li>Abraham Mammen
     <ul>
-      <li><b>Tasks:</b></li>
+      <li><b>Tasks</b></li>
       <li>-Planning and scheduling
 -Communication & collaboration
 -Report Compilation
@@ -60,7 +60,7 @@
   </li>
   <li>Serena Johnson
     <ul>
-      <li><b>Tasks:</b></li>
+      <li><b>Tasks</b></li>
       <li>-Communication & collaboration
 -Planning and scheduling  
 -Revise and refine system
@@ -75,7 +75,7 @@ manage Slack & GitHub account
   </li>
   <li>Harsh Jivani
     <ul>
-      <li><b>Tasks:</b></li>
+      <li><b>Tasks</b></li>
       <li>-Planning and scheduling
 -Communication & collaboration
 -Report Compilation
