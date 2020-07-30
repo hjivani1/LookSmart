@@ -7,32 +7,85 @@
 <ul>
   <li>Adam Nichols
     <ul>
-      <li>Tasks:</li>
-      <li>b</li>
+      <li><b>Tasks</b></li>
+      <li>-Planning and scheduling
+-Communication & collaboration
+-Report Compilation
+-Creating YouTube channel
+-Editing/uploading video to YouTube
+-Deployment
+-Aid in Back-End Dev
+-Aid in App Deployment
+-Complete Use cases 
+-Implementing database design and class diagram 
+-logic for logout functionality’s 
+-Unit test  
+-Backend logic for reservation history 
+-Aid in Diagram Dev
+</li>
     </ul>
   </li>
   <li>Arsal Khan
     <ul>
-      <li>Tasks:</li>
-      <li>b</li>
+      <li><b>Tasks</b></li>
+      <li>-Planning and scheduling
+-Communication & collaboration
+-Report Compilation
+-User Requirements
+-Aid in Diagram Dev
+-Aid in Back-End Dev
+-Complete Use cases 
+-Implementing database design and class diagram 
+-logic for logout functionality’s 
+-Unit test  
+-Backend logic for reservation history
+</li>
     </ul>
   </li>
   <li>Abraham Mammen
     <ul>
-      <li>Tasks:</li>
-      <li>b</li>
+      <li><b>Tasks</b></li>
+      <li>-Planning and scheduling
+-Communication & collaboration
+-Report Compilation
+-System Requirements
+-Revise and refine the system 
+-Front-end implementation & design
+-System modeling
+-Aid in Diagram Dev
+-Editing/uploading video to YouTube
+-Sequence diagram, use case diagram, architectural design (4+1), class diagram
+</li>
     </ul>
   </li>
   <li>Serena Johnson
     <ul>
-      <li>Tasks:</li>
-      <li>b</li>
+      <li><b>Tasks</b></li>
+      <li>-Communication & collaboration
+-Planning and scheduling  
+-Revise and refine system
+-Report Compilation
+-Teamwork Basics
+-Front-end implementation & design
+-Editing/uploading video to YouTube
+-Problem Statement
+manage Slack & GitHub account
+</li>
     </ul>
   </li>
   <li>Harsh Jivani
     <ul>
-      <li>Tasks:</li>
-      <li>b</li>
+      <li><b>Tasks</b></li>
+      <li>-Planning and scheduling
+-Communication & collaboration
+-Report Compilation
+-Create/manage Slack & GitHub account
+-Revise and refine the system 
+-Front-end implementation & design 
+-System modeling
+-Sequence diagram, use case diagram, architectural design (4+1), class diagram 
+-Editing/uploading video to YouTube
+</li>
     </ul>
   </li>
 </ul>
